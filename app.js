@@ -18,7 +18,7 @@ const PORT = process.env.PORT
 
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://asistenciasocrates.duckdns.org', 'https://asistencia.institutosocrates.mx', 'https://asistencia-socrates.onrender.com'],
+    origin: ['http://localhost:3000', 'https://asistenciasocrates.duckdns.org', 'https://asistencia.institutosocrates.mx'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['token', 'Origin', 'Accept', 'Content-Type'],
@@ -152,6 +152,6 @@ async (req, res, next) => {
 app.use(routeErrorHandling);
 app.use(notFoundRouter);
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log('server escuchando en el puerto http://localhost:'+PORT);
+app.listen(3002, '0.0.0.0', () => {
+    console.log('server escuchando en el puerto http://localhost:'+3002);
 });
