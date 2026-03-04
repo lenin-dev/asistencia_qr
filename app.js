@@ -157,6 +157,6 @@ async (req, res, next) => {
 app.use(routeErrorHandling);
 app.use(notFoundRouter);
 
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
     console.log('server escuchando en el puerto http://localhost:'+PORT);
 });
