@@ -15,7 +15,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: ['*', 'http://localhost:3000', 'https://asistencia.institutosocrates.mx'],
+    origin: ['*', 'http://localhost:3000', 'https://asistencia.institutosocrates.mx', 'https://msg-auto-app-asistencia-socrates.lwmhph.easypanel.host'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['token', 'Origin', 'Accept', 'Content-Type'],
