@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 start ./app.js --name asistencia_qr_api",
-    "stop": "pm2 stop ./app.js",
-    "status": "pm2 monit",
-    "delete": "pm2 delete all",
-    "prueba": "node ./api/index.js",
+    "start": "node ./app.js",
     "dev": "nodemon ./app.js"
   },
   "keywords": [],
@@ -25,6 +21,6 @@
     "moment-timezone": "^0.6.0",
     "mysql2": "^3.10.3",
     "nodemon": "^3.1.4",
-    "pm2": "^6.0.14"
+    "pm2": "^6.0.10"
   }
 }

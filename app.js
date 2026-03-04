@@ -14,26 +14,25 @@ require('dotenv').config();
 
 const app = express();
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
+
 
 app.use(cors({
-    origin: [
-        'http://localhost:3000',
-        'https://asistenciasocrates.duckdns.org',
-        'https://asistencia.institutosocrates.mx'
-    ],
+    origin: ['http://localhost:3000', 'https://asistenciasocrates.duckdns.org', 'https://asistencia.institutosocrates.mx', 'https://asistencia-socrates.onrender.com'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['token', 'Origin', 'Accept', 'Content-Type'],
     exposedHeaders: ['token']
 }));
-
-app.options('*', cors());
 app.use(express.json());
 
 
 
 app.use(express.static(path.join(__dirname, './')));
+
+app.get('/health', (req, res) => {
+    res.status(200).send('ok');
+});
 
 app.post('/login', async (req, res, next) => {
     let pool;
@@ -158,5 +157,5 @@ app.use(routeErrorHandling);
 app.use(notFoundRouter);
 
 app.listen(PORT, '0.0.0.0', () => {
-    console.log('server escuchando en el puerto http://localhost:'+PORT);
+    console.log(`server escuchando en el puerto ${PORT}`);
 });
