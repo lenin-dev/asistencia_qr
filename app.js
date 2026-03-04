@@ -10,12 +10,15 @@ const asistencia = require('./api/models/asistencias.js');
 const LoginModel = require('./api/models/login.js');
 const verificarToken = require('./api/middleware/verificar.token.middleware.js');
 const conn = require('./api/connection/conn.js');
+require('dotenv').config;
 
 const app = express();
 
+const PORT = process.env.PORT
+
 
 app.use(cors({
-    origin: ['http://localhost:3002', 'https://asistencia.institutosocrates.mx', 'https://msg-auto-app-asistencia-socrates.lwmhph.easypanel.host'],
+    origin: ['http://localhost:3000', 'https://asistenciasocrates.duckdns.org', 'https://asistencia.institutosocrates.mx', 'https://asistencia-socrates.onrender.com'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['token', 'Origin', 'Accept', 'Content-Type'],
@@ -149,6 +152,6 @@ async (req, res, next) => {
 app.use(routeErrorHandling);
 app.use(notFoundRouter);
 
-app.listen(3002, '0.0.0.0', () => {
-    console.log('server escuchando en el puerto http://localhost:'+3002);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log('server escuchando en el puerto http://localhost:'+PORT);
 });

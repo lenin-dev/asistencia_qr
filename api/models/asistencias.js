@@ -1,3 +1,5 @@
+const fechaActual = require('../adicionales/fechaActual.js');
+
 class Asistencias {
 
     conn;
@@ -16,9 +18,10 @@ class Asistencias {
         const [rows, fields] = await this.conn.execute('SELECT * FROM asistencia WHERE matriculaSoc = ? AND DATE(fechaEntrada) = CURDATE()', [matri]);
         return rows.length;
     }
+    
 
     async crearasistencia(matriculaSoc) {
-        const [rows, fields] = await this.conn.execute('INSERT INTO asistencia (matriculaSoc) VALUES (?)', [matriculaSoc]);
+        const [rows, fields] = await this.conn.execute('INSERT INTO asistencia (matriculaSoc, fechaEntrada) VALUES (?, ?)', [matriculaSoc, fechaActual()]);
         return "New record created successfully";
     }
 
