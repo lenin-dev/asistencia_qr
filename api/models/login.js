@@ -60,10 +60,10 @@ class LoginModel {
             if (rows.length === 0) {
                 throw new Error('No se logro eliminar el token');
             }
-            res.status(200).json({
+            return {
                 code: 200,
                 message: 'Sesión cerrada correctamente',
-            });
+            };
         }
         catch (error) {
             throw error;
@@ -81,10 +81,6 @@ class LoginModel {
             if (rows.affterdRows === 0) {
                 throw new Error('No se logro almacenar el usuario');
             }
-            res.status(201).json({
-                codigo: 201,
-                mensaje: 'Usuario creado con éxito',
-            });
         }
         catch (error) {
             throw error;
