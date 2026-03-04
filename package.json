@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 start ./app.js --name asistencia_qr_api",
+    "start": "node ./app.js",
     "stop": "pm2 stop ./app.js",
     "status": "pm2 monit",
     "delete": "pm2 delete all",
